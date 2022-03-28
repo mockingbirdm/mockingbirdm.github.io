@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>mockingbird</title>
+  <title>Mockingbird&#39;s Blog</title>
   
-  <subtitle>mockingbird</subtitle>
+  <subtitle>Mockingbird&#39;s Blog</subtitle>
   <link href="http://mockingbirdm.github.io/atom.xml" rel="self"/>
   
   <link href="http://mockingbirdm.github.io/"/>
-  <updated>2022-03-27T12:09:35.006Z</updated>
+  <updated>2022-03-28T12:34:37.404Z</updated>
   <id>http://mockingbirdm.github.io/</id>
   
   <author>
-    <name>mockingbird</name>
+    <name>Mockingbird</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>音乐</title>
+    <link href="http://mockingbirdm.github.io/2022/03/28/yin-le/"/>
+    <id>http://mockingbirdm.github.io/2022/03/28/yin-le/</id>
+    <published>2022-03-28T11:14:00.000Z</published>
+    <updated>2022-03-28T12:34:37.404Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;链接打不开的话可能得用梯子&lt;/p&gt;
+&lt;h2 id=&quot;林志炫&quot;&gt;&lt;a href=&quot;#林志炫&quot; class=&quot;headerlink&quot; title=&quot;林志炫&quot;&gt;&lt;/a&gt;林志炫&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="音乐" scheme="http://mockingbirdm.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
+    
+    
+    <category term="音乐" scheme="http://mockingbirdm.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -39,10 +65,10 @@
   
   <entry>
     <title>罗翔语录</title>
-    <link href="http://mockingbirdm.github.io/2022/03/26/test/"/>
-    <id>http://mockingbirdm.github.io/2022/03/26/test/</id>
+    <link href="http://mockingbirdm.github.io/2022/03/26/luo-xiang/"/>
+    <id>http://mockingbirdm.github.io/2022/03/26/luo-xiang/</id>
     <published>2022-03-26T06:25:00.000Z</published>
-    <updated>2022-03-28T08:41:08.990Z</updated>
+    <updated>2022-03-28T11:09:53.933Z</updated>
     
     
       
