@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>mockingbird</title>
+  
+  <subtitle>mockingbird</subtitle>
+  <link href="http://mockingbirdm.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://mockingbirdm.github.io/"/>
+  <updated>2022-03-27T12:09:35.006Z</updated>
+  <id>http://mockingbirdm.github.io/</id>
+  
+  <author>
+    <name>mockingbird</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://mockingbirdm.github.io/2022/03/27/hello-world/"/>
+    <id>http://mockingbirdm.github.io/2022/03/27/hello-world/</id>
+    <published>2022-03-27T12:09:35.005Z</published>
+    <updated>2022-03-27T12:09:35.006Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>罗翔语录</title>
+    <link href="http://mockingbirdm.github.io/2022/03/26/test/"/>
+    <id>http://mockingbirdm.github.io/2022/03/26/test/</id>
+    <published>2022-03-26T06:25:00.000Z</published>
+    <updated>2022-03-28T08:41:08.990Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;罗翔&quot;&gt;&lt;a href=&quot;#罗翔&quot; class=&quot;headerlink&quot; title=&quot;罗翔&quot;&gt;&lt;/a&gt;罗翔&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="哲学" scheme="http://mockingbirdm.github.io/categories/%E5%93%B2%E5%AD%A6/"/>
+    
+    
+    <category term="罗翔" scheme="http://mockingbirdm.github.io/tags/%E7%BD%97%E7%BF%94/"/>
+    
+  </entry>
+  
+</feed>
