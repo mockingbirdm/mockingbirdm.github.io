@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>归并排序</title>
+      <link href="/2022/05/12/suan-fa-pai-xu-gui-bing/"/>
+      <url>/2022/05/12/suan-fa-pai-xu-gui-bing/</url>
+      
+        <content type="html"><![CDATA[<h1 id="归并排序-二路归并"><a href="#归并排序-二路归并" class="headerlink" title="归并排序(二路归并)"></a>归并排序(二路归并)</h1><h2 id="归并排序思想"><a href="#归并排序思想" class="headerlink" title="归并排序思想"></a>归并排序思想</h2><p><strong>1、确定分界点</strong></p><p>找分界点的方式一般都为找中点即 <code>mid = l + r &gt;&gt; 1</code></p><p><strong>2、递归左区间和右区间</strong></p><p>注意：快速排序中是先调整好区间再进行递归调用</p><p><strong>3、合二为一(难点)</strong></p><p>需要一个额外的数组来暂存合并好的数组</p><h2 id="归并排序模板"><a href="#归并排序模板" class="headerlink" title="归并排序模板"></a>归并排序模板</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r){    if(l &gt;= r) return ; //递归出口    int mid = l + r &gt;&gt; 1;//第一步：确定分界点    merge_sort(q, l, mid),merge_sort(q, mid + 1, r);//第二步：递归调用    int k = 0, i = l, j = mid + 1;    while(i &lt;= mid &amp; j &lt;= r){//第三步：合二为一        if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];//注：这里的 &gt;= 可保证排序的稳定        else tmp[k ++ ] = q[j ++ ];    }    while(i &lt;= mid ) tmp[k ++ ] = q[i ++ ];    while(j &lt;= r) tmp[k ++ ] = q[j ++ ];    for(i = l, j = 0; i &lt;= r; i++, j++ ) q[i] = tmp[j];}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="逆序对的数量—题目讲解"><a href="#逆序对的数量—题目讲解" class="headerlink" title="逆序对的数量—题目讲解"></a>逆序对的数量—题目讲解</h2><p><a href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>可能有的朋友第一次读完题后觉得很莫名奇妙，这和归并排序有关？什么玩意？</p><p>但这确实是一道归并排序的模板题。</p><p>在此之前我们首先要搞清楚什么是<strong>逆序对</strong>，在<code>2,1,4,5,3</code>像&lt;2,1&gt;, &lt;4,3&gt;, &lt;5,3&gt;这样的即为逆序对</p><p>在搞清楚什么是逆序对之后我们就需要考虑它的出现方式，假设我们将一个数列划分为左右两个区间，那么逆序对出现的情况无非就三种</p><p>1、两个数均在左区间</p><p>2、两个数均在右区间</p><p>3、一个数在左区间一个数在右区间</p><p>欸！看到这里是不是马上想到了如果将一个区间视为一个新的数列，那我们实际只需要考虑第三种情况了！</p><p>假如数列的区间划分为为 <code>4 5 6| 1 2 3</code>，那么很明显 如果右区间的最大数小于左区间的最小数，那么立马就能用简单的数学运算得出这个数与左区间形成的逆序对数量 ;</p><p>所以现在的问题是如何找到每次各区间的最小最大数</p><p><del>这多简单？两个for循环不就搞定了？</del> 很显然这样的时间复杂度是o(n^2)</p><p>而归并排序不就恰好能实现这一点吗？而且相应的时间复杂度是o(nlogn)</p><p>所以其实这道题就只需要在归并排序原基础上添加一行代码</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(i &lt;= mid &amp;&amp; j &lt;= r){    if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];    else {        tmp[k ++ ] = q[j ++ ];        nums += mid - l + 1;//新添加的一行代码    }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="关于归并排序你可能想要知道的"><a href="#关于归并排序你可能想要知道的" class="headerlink" title="关于归并排序你可能想要知道的"></a>关于归并排序你可能想要知道的</h2><p>1、该排序算法属于分治法。</p><p>2、该排序算法的时间复杂度稳定的是o(nlogn)不会变动。<em>注: 实际上此处的log是以2为底的</em></p><p>3、该算法其实是以用空间换时间。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 数据结构 排序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>快速排序</title>
+      <link href="/2022/05/11/suan-fa-pai-xu-kuai-pai/"/>
+      <url>/2022/05/11/suan-fa-pai-xu-kuai-pai/</url>
+      
+        <content type="html"><![CDATA[<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="快排思想——分治"><a href="#快排思想——分治" class="headerlink" title="快排思想——分治"></a>快排思想——分治</h2><p><strong>1.确定分界点</strong></p><p>常用的方式有：<code>q[l]</code> 、<code>q[(l + r) / 2]</code>，<code>q[r]</code></p><p><strong>2.调整区间(难点)</strong></p><p>假设确定好的分界点的值是<code>x</code>则调整后的左区间所有元素均 &lt;= <code>x</code>,右区间的所有值均 &gt;= <code>x</code></p><p>Q：如何优雅的将其分成两个区间？</p><p>小k：简单，再新建两个临时数组<code>tmp1[],tmp2[]</code>,小于基准点的放入第一个，大于基准点的放入第二个，最后再都放入原数组。(暴力的)</p><p><em>这种做法是典型的以空间换时间，如果不太记得优雅的方法的界限划分时倒也不失为一种方法</em></p><p><strong>3.递归处理左右两端</strong></p><h2 id="快排模板"><a href="#快排模板" class="headerlink" title="快排模板"></a>快排模板</h2><p>优雅的</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r){    if(l &gt;= r) return;//终止条件    int x = q[l + r &gt;&gt; 1];//第一步，确定分界点    int i = l - 1, j = r + 1;//注意这里的取值，因为下面使用的是do-while所以需要往两边扩一下    while(i &lt; j){//第二步，调整左右区间        do i ++ ; while(q[i] &gt;= x);   do j -- ; while(q[j] &lt;= x);        if(i &lt; j) swap(q[i], q[j]);    }    quick_sort(q, l, j), qucik_sort(q, j + 1, r);//第三步，递归处理左右两端；注意：这里的分界区间，天坑！！(都是泪)，和以首个元素为基准点的划分不一样，且以中间元素为基准点的划分每一次不会确定一个点的最终位置}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="第k小的数—模板题"><a href="#第k小的数—模板题" class="headerlink" title="第k小的数—模板题"></a>第k小的数—模板题</h2><p><a href="https://www.luogu.com.cn/problem/P1923">P1923 【深基9.例4】求第 k 小的数 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>提示：用 k 和要递归的区间左比较，确定在哪个区间就行</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 数据结构 排序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>音乐</title>
       <link href="/2022/03/28/yin-le/"/>
       <url>/2022/03/28/yin-le/</url>
