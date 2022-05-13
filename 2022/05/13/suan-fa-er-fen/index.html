@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="快排 排序">
+    <meta name="keywords" content="二分算法">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>快速排序 | Mockingbird&#39;s Blog</title>
+    <title>二分算法 | Mockingbird&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/libs/awesome/css/all.css">
@@ -228,12 +228,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">快速排序</h1>
+                    <h1 class="description center-align post-title">二分算法</h1>
                 </div>
             </div>
         </div>
@@ -357,10 +357,6 @@
                                 <span class="chip bg-color">数据结构</span>
                             </a>
                         
-                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">排序</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -382,21 +378,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-11
+                    2022-05-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-12
+                    2022-05-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    433
+                    453
                 </div>
                 
 
@@ -421,30 +417,42 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="快排思想——分治"><a href="#快排思想——分治" class="headerlink" title="快排思想——分治"></a>快排思想——分治</h2><p><strong>1.确定分界点</strong></p>
-<p>常用的方式有：<code>q[l]</code> 、<code>q[(l + r) / 2]</code>，<code>q[r]</code></p>
-<p><strong>2.调整区间(难点)</strong></p>
-<p>假设确定好的分界点的值是<code>x</code>则调整后的左区间所有元素均 &lt;= <code>x</code>,右区间的所有值均 &gt;= <code>x</code></p>
-<p>Q：如何优雅的将其分成两个区间？</p>
-<p>小k：简单，再新建两个临时数组<code>tmp1[],tmp2[]</code>,小于基准点的放入第一个，大于基准点的放入第二个，最后再都放入原数组。(暴力的)</p>
-<p><em>这种做法是典型的以空间换时间，如果不太记得优雅的方法的界限划分时倒也不失为一种方法</em></p>
-<p><strong>3.递归处理左右两端</strong></p>
-<h2 id="快排模板"><a href="#快排模板" class="headerlink" title="快排模板"></a>快排模板</h2><p>优雅的</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r){
-    if(l &gt;= r) return;//终止条件
-    int x = q[l + r &gt;&gt; 1];//第一步，确定分界点
-    int i = l - 1, j = r + 1;//注意这里的取值，因为下面使用的是do-while所以需要往两边扩一下
-    while(i &lt; j){//第二步，调整左右区间
-        do i ++ ; while(q[i] &gt;= x);
-   		do j -- ; while(q[j] &lt;= x);
-        if(i &lt; j) swap(q[i], q[j]);
-    }
-    quick_sort(q, l, j), qucik_sort(q, j + 1, r);//第三步，递归处理左右两端；注意：这里的分界区间，天坑！！(都是泪)，和以首个元素为基准点的划分不一样，且以中间元素为基准点的划分每一次不会确定一个点的最终位置
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="二分算法"><a href="#二分算法" class="headerlink" title="二分算法"></a>二分算法</h1><h2 id="二分算法思想"><a href="#二分算法思想" class="headerlink" title="二分算法思想"></a>二分算法思想</h2><p>其实很多人认为只有具有<strong>单调性</strong>的数列才能用二分，其实不是。</p>
+<p>单调序列一定能二分，能二分的却不一定时单调序列。</p>
+<p>二分的实质其实是根据元素集合中的<strong>某种性质</strong>来找出<strong>性质的边界</strong>。</p>
+<p>基本步骤为：</p>
+<p>1、确定分界点，一般为<code>mid = l + r &gt;&gt; 1</code></p>
+<p>2、确定分界点的判断函数<code>check()</code></p>
+<p>3、根据判断结果的真和假来划分区间</p>
+<h2 id="二分模板"><a href="#二分模板" class="headerlink" title="二分模板"></a>二分模板</h2><h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><p><img src="https://cdn.jsdelivr.net/gh/mockingbirdm/picgodemo/img/%E4%BA%8C%E5%88%86%E5%8C%BA%E9%97%B4%E5%88%92%E5%88%86.png"></p>
+<p>整型二分的模板右两种</p>
+<p><strong>1、想找出边界的第一个点(例如 图中的B点)</strong></p>
+<p>假设想找出最后一个小于等于 <code>X</code> 的点</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(l &lt; r){
+    int mid = l + r &gt;&gt; 1;//1、确定分界点
+	if (mid &gt;= x) r = mid;//2、确定判断函数；3、划分区间
+	else l = mid + 1;
+} <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="第k小的数—模板题"><a href="#第k小的数—模板题" class="headerlink" title="第k小的数—模板题"></a>第k小的数—模板题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1923">P1923 【深基9.例4】求第 k 小的数 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<p>提示：用 k 和要递归的区间左比较，确定在哪个区间就行</p>
+<p><em>注：这里只是举了一个具体的例子，实际上如果将区间<code>[l,r]</code>划分区间为<code>[l，mid]</code>或<code>[mid + 1, r] </code>都可使用</em></p>
+<p><strong>2、想找出边界的最后一个点（例如 如中的A点）</strong></p>
+<p>假设想找出第一个大于等于 <code>X</code> 的点</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(l &lt; r){
+    int mid = l + r + 1 &gt;&gt; 1; //注意这里加了1
+    if(mid &lt;= x) l = mid;
+    else r = mid - 1;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>因为<code>c++</code>中除法是向下取整，如果此时<code>r = l + 1</code>那么此时更新区间左端点的步骤<code>l = mid</code>实际没有作用，会陷入死循环中</p>
+<p><em>注：这里只是举了一个具体的例子，实际上如果将区间<code>[l,r]</code>划分区间为<code>[l，mid - 1]</code>或<code>[mid , r] </code>都可使用</em></p>
+<h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><p>浮点型就要简单多了，没那么多的区间限制</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(l &lt; r){
+    int mid = l + r &gt;&gt; 1;
+    if (check(mid)) r= mid;
+    else l = mid;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>巨简单！</p>
 
                 
             </div>
@@ -471,7 +479,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://mockingbirdm.github.io/2022/05/11/suan-fa-pai-xu-kuai-pai/">http://mockingbirdm.github.io/2022/05/11/suan-fa-pai-xu-kuai-pai/</a>
+                    <a href="http://mockingbirdm.github.io/2022/05/13/suan-fa-er-fen/">http://mockingbirdm.github.io/2022/05/13/suan-fa-er-fen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -515,10 +523,6 @@
                             
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                                     <span class="chip bg-color">数据结构</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">排序</span>
                                 </a>
                             
                         </div>
@@ -688,9 +692,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/05/13/suan-fa-er-fen/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="二分算法">
+                        
+                        <span class="card-title">二分算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            二分算法思想和模板
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/05/12/suan-fa-pai-xu-gui-bing/">
                     <div class="card-image">
@@ -708,9 +767,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -736,55 +795,6 @@
                     
                     <a href="/tags/%E6%8E%92%E5%BA%8F/">
                         <span class="chip bg-color">排序</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/03/28/yin-le/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="音乐">
-                        
-                        <span class="card-title">音乐</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            这世界那么多人
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%9F%B3%E4%B9%90/" class="post-category">
-                                    音乐
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%9F%B3%E4%B9%90/">
-                        <span class="chip bg-color">音乐</span>
                     </a>
                     
                 </div>
