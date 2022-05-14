@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="归并排序 排序 逆序对">
+    <meta name="keywords" content="龙族">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>归并排序 | Mockingbird&#39;s Blog</title>
+    <title>2_一本你可能会喜欢的小说 | Mockingbird&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/libs/awesome/css/all.css">
@@ -228,12 +228,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">归并排序</h1>
+                    <h1 class="description center-align post-title">2_一本你可能会喜欢的小说</h1>
                 </div>
             </div>
         </div>
@@ -349,16 +349,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/%E5%B0%8F%E8%AF%B4/">
+                                <span class="chip bg-color">小说</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">排序</span>
+                            <a href="/tags/%E9%BE%99%E6%97%8F/">
+                                <span class="chip bg-color">龙族</span>
                             </a>
                         
                     </div>
@@ -369,8 +365,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%B0%8F%E8%AF%B4/" class="post-category">
+                                小说
                             </a>
                         
                     </div>
@@ -382,21 +378,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-12
+                    2022-05-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-12
+                    2022-05-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    776
+                    1.5k
                 </div>
                 
 
@@ -416,55 +412,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="归并排序-二路归并"><a href="#归并排序-二路归并" class="headerlink" title="归并排序(二路归并)"></a>归并排序(二路归并)</h1><h2 id="归并排序思想"><a href="#归并排序思想" class="headerlink" title="归并排序思想"></a>归并排序思想</h2><p><strong>1、确定分界点</strong></p>
-<p>找分界点的方式一般都为找中点即 <code>mid = l + r &gt;&gt; 1</code></p>
-<p><strong>2、递归左区间和右区间</strong></p>
-<p>注意：快速排序中是先调整好区间再进行递归调用</p>
-<p><strong>3、合二为一(难点)</strong></p>
-<p>需要一个额外的数组来暂存合并好的数组</p>
-<h2 id="归并排序模板"><a href="#归并排序模板" class="headerlink" title="归并排序模板"></a>归并排序模板</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r){
-    if(l &gt;= r) return ; //递归出口
-    int mid = l + r &gt;&gt; 1;//第一步：确定分界点
-    merge_sort(q, l, mid),merge_sort(q, mid + 1, r);//第二步：递归调用
-    int k = 0, i = l, j = mid + 1;
-    while(i &lt;= mid &amp; j &lt;= r){//第三步：合二为一
-        if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];//注：这里的 &gt;= 可保证排序的稳定
-        else tmp[k ++ ] = q[j ++ ];
-    }
-    while(i &lt;= mid ) tmp[k ++ ] = q[i ++ ];
-    while(j &lt;= r) tmp[k ++ ] = q[j ++ ];
-    for(i = l, j = 0; i &lt;= r; i++, j++ ) q[i] = tmp[j];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="逆序对的数量—题目讲解"><a href="#逆序对的数量—题目讲解" class="headerlink" title="逆序对的数量—题目讲解"></a>逆序对的数量—题目讲解</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<p>可能有的朋友第一次读完题后觉得很莫名奇妙，这和归并排序有关？什么玩意？</p>
-<p>但这确实是一道归并排序的模板题。</p>
-<p>在此之前我们首先要搞清楚什么是<strong>逆序对</strong>，在<code>2,1,4,5,3</code>像&lt;2,1&gt;, &lt;4,3&gt;, &lt;5,3&gt;这样的即为逆序对</p>
-<p>在搞清楚什么是逆序对之后我们就需要考虑它的出现方式，假设我们将一个数列划分为左右两个区间，那么逆序对出现的情况无非就三种</p>
-<p>1、两个数均在左区间</p>
-<p>2、两个数均在右区间</p>
-<p>3、一个数在左区间一个数在右区间</p>
-<p>欸！看到这里是不是马上想到了如果将一个区间视为一个新的数列，那我们实际只需要考虑第三种情况了！</p>
-<p>假如数列的区间划分为为 <code>4 5 6| 1 2 3</code>，那么很明显 如果右区间的最大数小于左区间的最小数，那么立马就能用简单的数学运算得出这个数与左区间形成的逆序对数量 ;</p>
-<p>所以现在的问题是如何找到每次各区间的最小最大数</p>
-<p><del>这多简单？两个for循环不就搞定了？</del> 很显然这样的时间复杂度是o(n^2)</p>
-<p>而归并排序不就恰好能实现这一点吗？而且相应的时间复杂度是o(nlogn)</p>
-<p>所以其实这道题就只需要在归并排序原基础上添加一行代码</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(i &lt;= mid &amp;&amp; j &lt;= r){
-    if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];
-    else {
-        tmp[k ++ ] = q[j ++ ];
-        nums += mid - l + 1;//新添加的一行代码
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h2 id="关于归并排序你可能想要知道的"><a href="#关于归并排序你可能想要知道的" class="headerlink" title="关于归并排序你可能想要知道的"></a>关于归并排序你可能想要知道的</h2><p>1、该排序算法属于分治法。</p>
-<p>2、该排序算法的时间复杂度稳定的是o(nlogn)不会变动。<em>注: 实际上此处的log是以2为底的</em></p>
-<p>3、该算法其实是以用空间换时间。</p>
+                <p><strong>全文手打，没一个字是复制的</strong></p>
+<p>持续更新(更新速度取决于我最近有没有时间看)~</p>
+<h1 id="没钱上大学的我只能去屠龙了"><a href="#没钱上大学的我只能去屠龙了" class="headerlink" title="没钱上大学的我只能去屠龙了"></a>没钱上大学的我只能去屠龙了</h1><blockquote>
+<p>作者：宇宙无敌水哥</p>
+</blockquote>
+<p><em>书名和作者名着实令人劝退，但实际上是一本写的非常不错龙族同人</em></p>
+<blockquote>
+<p>当一个陌生的人来到陌生的城市的时候，他所仰视的每一座摩天大厦都会以陌生的面孔俯视着他，整座城市都像是在居高临下地审视这个陌生人，冷漠地考虑是将他吞进去吃干抹净，还是憎恶地吐出去。</p>
+<p>我记得有人跟我说过：只要抬头看着蓝天，我就知道我还有地方可以回去。</p>
+<p>她的建议是既然不喜欢就要远离她，离得远远地不要做任何的回应，因为这种暗恋就像黑暗里的蛾子，但凡见到一点光线，他就会以为那是世界上最明亮的太阳…太阳永远会从东边升起，他们心里的期望永远烧不干净，会在地上留下灰尘，一边卑微到泥土里，又一边期望以灰尘为养料，在泥土里开出花来。</p>
+<p>他们这些人做一件事情，一次不够就两次，一天不行就两天，一个星期，一个月，一年，三年，十年，乃至一辈子，没有把时间用干净就不配说无缘，直到倒进坟墓里要洒上棺盖上的那捧泥土之前，才有资格用最后一口气说这辈子无缘无份。</p>
+<p>毕竟人这种东西，可以死在结局里，但一定不能死在路上。</p>
+<p>young people do young thing</p>
+<p>“当着人家的面拆开礼物不显得很失礼吗？”  “在我们那边没这个说法，礼物这种东西本来就是拆开来看的，分享喜悦才是礼物最大的意义”</p>
+<p>是啊，太突然了，他只能想到突然两个字，突然自己为数不多的朋友就要出国了，突然身边的人全都找到新方向了，突然这座城市里说得上烂话的人就又少一个了。</p>
+<p>他抽了抽鼻子感觉隔着手机屏幕都能闻到火锅底料的香味，眼下天气也是够给面子的，一筷子火锅蘸着倒春寒的晚风作佐料，好像能将春夏两个季节一起热腾腾地吞下去。</p>
+<p>“并不是所有女孩子都是用糖果，香料以及一切美好的东西做成的。有些女孩生来即代表冒险，美酒，智慧与无所畏惧。她们像飞鸟、流星、夏日正好的阳光、拂面而来的春风，带着生机勃勃的气息拥抱你。”</p>
+<p>“嗯，我现在知道，但那时侯只感觉你终于厌烦我了，满伤心的，那晚上我回去之后翻了火锅店里那首歌来听，反复听…有些怪矫情的，之后我也觉得有些好笑，但每次听见有人放那首歌就烦的要死…”   “伤心的人听什么歌都感觉是在唱自己。”(本人表示太对了！！)</p>
+<p>都说分手有三个阶段，第一阶段是埋怨现在，然后就是怀念过去，再就是向前走。没有什么感情是可以藕断丝连到带入坟墓的——可能是有的，但它发生的概率太过渺小了，小到可以忽略不去计算。</p>
+<p>打游戏这方面还得是看我们男孩子的(游戏大男子主义)，女孩子还是哭着玩4399换装游戏去吧。这些屁话…他当然没有直接说出来。(当时看到这里直接笑死)</p>
+<p>《等一个人咖啡里》里说，用十年后的自己站在现在的角度看待现在的事情，你就会发现，也许十年后的自己根本就不在乎这些事情。</p>
+<p>嘿，这是在干嘛？表白求爱吗？只是这种腔调是不是太过卑微了一些？朋友，你还小，还不理解，所有的爱情的禁忌都是不能存在上下级权力的啊，你们应该彼此互相珍惜，而不是卑微地祈求对方来爱你。</p>
+<p>颓废的成因是：做过于轻松的事情，过于懒惰而无法做好事情，欣赏太多的艺术，喜好怪诞的东西——伏尔泰《巴比伦公主》</p>
+<p>a body that can rise the moon must carry countless sunsets</p>
+<p>喜欢在玻璃里寻自己的影子的人都是孤独脆弱的，因为明亮的镜子对于他们来说倒影地太过于真切、残忍了，看见里面那不加修饰的真实，会让他们从心底里涌起不适和恐惧。而玻璃…玻璃却是再好不过了，模糊的影子在浑噩的天光的加持下晦暗难明，里面浑浊影子的脸可以成为他们想要的任何模样，给予他们一点点安慰。</p>
+<p>重逢这种事情，不能带着愁眉苦脸，应当带着笑容和美好的情绪，就像窗外穿透雪花的阳光，即使是在再冬的冬日里，也总该有那一束温暖照在人的脖颈上，带给他们寒冬里为数不多的暖意。</p>
+<p>“是平稳而一成不变的生活”  “在一年前这是我的梦想，而现在我的梦想达成了，她不用每天起早贪黑地往外跑，而是有时间坐在图书馆里学习自己喜欢的东西，想买什么咬咬牙就可以买，不至于每次路过的时候都得转头看着我假装跟我聊天回避视线，我能感觉到她在里过得很开心…比以前任何时候都要轻松，这是我做梦都想看到的。”</p>
+</blockquote>
 
                 
             </div>
@@ -491,7 +466,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://mockingbirdm.github.io/2022/05/12/suan-fa-pai-xu-gui-bing/">http://mockingbirdm.github.io/2022/05/12/suan-fa-pai-xu-gui-bing/</a>
+                    <a href="http://mockingbirdm.github.io/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/">http://mockingbirdm.github.io/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -529,16 +504,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/%E5%B0%8F%E8%AF%B4/">
+                                    <span class="chip bg-color">小说</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">排序</span>
+                                <a href="/tags/%E9%BE%99%E6%97%8F/">
+                                    <span class="chip bg-color">龙族</span>
                                 </a>
                             
                         </div>
@@ -708,46 +679,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/05/13/suan-fa-er-fen/">
+                <a href="/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="二分算法">
+                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="2_一本你可能会喜欢的小说">
                         
-                        <span class="card-title">二分算法</span>
+                        <span class="card-title">2_一本你可能会喜欢的小说</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            二分算法思想和模板
+                            非中二病患者勿看
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%B0%8F%E8%AF%B4/" class="post-category">
+                                    小说
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E5%B0%8F%E8%AF%B4/">
+                        <span class="chip bg-color">小说</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%BE%99%E6%97%8F/">
+                        <span class="chip bg-color">龙族</span>
                     </a>
                     
                 </div>
@@ -761,24 +738,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/11/suan-fa-pai-xu-kuai-pai/">
+                <a href="/2022/05/14/qian-zhui-he-yu-chai-fen/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="快速排序">
+                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/3.jpg" class="responsive-img" alt="前缀和与差分">
                         
-                        <span class="card-title">快速排序</span>
+                        <span class="card-title">前缀和与差分</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            快排思想和模板
+                            前缀和与差分思想和模板
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-14
                             </span>
                         <span class="publish-author">
                             
@@ -797,14 +774,6 @@
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>

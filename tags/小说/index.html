@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, Mockingbird 算法 数据结构 机器学习 深度学习 哲学 音乐 电影 短视频">
+    <meta name="keywords" content="标签: 小说, Mockingbird 算法 数据结构 机器学习 深度学习 哲学 音乐 电影 短视频">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | Mockingbird&#39;s Blog</title>
+    <title>标签: 小说 | Mockingbird&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/libs/awesome/css/all.css">
@@ -270,118 +270,133 @@
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
             <div class="tag-chips">
                 
                 
-                
-                <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法: 4">
+                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">算法
+                            data-tagname="算法" style="background-color: #F9EBEA;">算法
                         <span class="tag-length">4</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E5%B0%8F%E8%AF%B4/" title="小说: 1">
+                <a href="/tags/%E5%B0%8F%E8%AF%B4/" title="小说: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">小说
+                             chip-active "
+                            data-tagname="小说" style="background-color: #F5EEF8;">小说
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E9%9F%B3%E4%B9%90/" title="音乐: 1">
+                <a href="/tags/%E9%BE%99%E6%97%8F/" title="龙族: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">音乐
+                            data-tagname="龙族" style="background-color: #D5F5E3;">龙族
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E5%93%B2%E5%AD%A6/" title="哲学: 1">
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">哲学
+                            data-tagname="数据结构" style="background-color: #E8F8F5;">数据结构
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%8E%92%E5%BA%8F/" title="排序: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="排序" style="background-color: #FEF9E7;">排序
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E9%9F%B3%E4%B9%90/" title="音乐: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="音乐" style="background-color: #F8F9F9;">音乐
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
+                
+                <a href="/tags/%E7%BD%97%E7%BF%94/" title="罗翔: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="罗翔" style="background-color: #82E0AA;">罗翔
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%BA%AA%E4%BC%AF%E4%BC%A6/" title="纪伯伦: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="纪伯伦" style="background-color: #D7BDE2;">纪伯伦
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
     </div>
 </div>
 
-
-    
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
     
 
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"算法","max":5},{"name":"小说","max":5},{"name":"音乐","max":5},{"name":"哲学","max":5}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [4,1,1,1],
-                    name : '文章分类数量'
-                }
-            ]
-        }]
-    };
-
-    radarChart.setOption(option);
-</script>
-
-    
-
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="小说, 龙族" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="2_一本你可能会喜欢的小说">
+                            
+                            <span class="card-title">2_一本你可能会喜欢的小说</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-14
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%B0%8F%E8%AF%B4/" class="post-category">
+                                小说
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">

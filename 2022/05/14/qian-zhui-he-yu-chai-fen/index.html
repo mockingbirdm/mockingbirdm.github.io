@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="归并排序 排序 逆序对">
+    <meta name="keywords" content="前缀和 差分">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>归并排序 | Mockingbird&#39;s Blog</title>
+    <title>前缀和与差分 | Mockingbird&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/libs/awesome/css/all.css">
@@ -228,12 +228,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">归并排序</h1>
+                    <h1 class="description center-align post-title">前缀和与差分</h1>
                 </div>
             </div>
         </div>
@@ -353,14 +353,6 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">排序</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -382,21 +374,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-12
+                    2022-05-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-12
+                    2022-05-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    776
+                    626
                 </div>
                 
 
@@ -416,55 +408,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="归并排序-二路归并"><a href="#归并排序-二路归并" class="headerlink" title="归并排序(二路归并)"></a>归并排序(二路归并)</h1><h2 id="归并排序思想"><a href="#归并排序思想" class="headerlink" title="归并排序思想"></a>归并排序思想</h2><p><strong>1、确定分界点</strong></p>
-<p>找分界点的方式一般都为找中点即 <code>mid = l + r &gt;&gt; 1</code></p>
-<p><strong>2、递归左区间和右区间</strong></p>
-<p>注意：快速排序中是先调整好区间再进行递归调用</p>
-<p><strong>3、合二为一(难点)</strong></p>
-<p>需要一个额外的数组来暂存合并好的数组</p>
-<h2 id="归并排序模板"><a href="#归并排序模板" class="headerlink" title="归并排序模板"></a>归并排序模板</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r){
-    if(l &gt;= r) return ; //递归出口
-    int mid = l + r &gt;&gt; 1;//第一步：确定分界点
-    merge_sort(q, l, mid),merge_sort(q, mid + 1, r);//第二步：递归调用
-    int k = 0, i = l, j = mid + 1;
-    while(i &lt;= mid &amp; j &lt;= r){//第三步：合二为一
-        if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];//注：这里的 &gt;= 可保证排序的稳定
-        else tmp[k ++ ] = q[j ++ ];
-    }
-    while(i &lt;= mid ) tmp[k ++ ] = q[i ++ ];
-    while(j &lt;= r) tmp[k ++ ] = q[j ++ ];
-    for(i = l, j = 0; i &lt;= r; i++, j++ ) q[i] = tmp[j];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="逆序对的数量—题目讲解"><a href="#逆序对的数量—题目讲解" class="headerlink" title="逆序对的数量—题目讲解"></a>逆序对的数量—题目讲解</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
-<p>可能有的朋友第一次读完题后觉得很莫名奇妙，这和归并排序有关？什么玩意？</p>
-<p>但这确实是一道归并排序的模板题。</p>
-<p>在此之前我们首先要搞清楚什么是<strong>逆序对</strong>，在<code>2,1,4,5,3</code>像&lt;2,1&gt;, &lt;4,3&gt;, &lt;5,3&gt;这样的即为逆序对</p>
-<p>在搞清楚什么是逆序对之后我们就需要考虑它的出现方式，假设我们将一个数列划分为左右两个区间，那么逆序对出现的情况无非就三种</p>
-<p>1、两个数均在左区间</p>
-<p>2、两个数均在右区间</p>
-<p>3、一个数在左区间一个数在右区间</p>
-<p>欸！看到这里是不是马上想到了如果将一个区间视为一个新的数列，那我们实际只需要考虑第三种情况了！</p>
-<p>假如数列的区间划分为为 <code>4 5 6| 1 2 3</code>，那么很明显 如果右区间的最大数小于左区间的最小数，那么立马就能用简单的数学运算得出这个数与左区间形成的逆序对数量 ;</p>
-<p>所以现在的问题是如何找到每次各区间的最小最大数</p>
-<p><del>这多简单？两个for循环不就搞定了？</del> 很显然这样的时间复杂度是o(n^2)</p>
-<p>而归并排序不就恰好能实现这一点吗？而且相应的时间复杂度是o(nlogn)</p>
-<p>所以其实这道题就只需要在归并排序原基础上添加一行代码</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(i &lt;= mid &amp;&amp; j &lt;= r){
-    if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];
-    else {
-        tmp[k ++ ] = q[j ++ ];
-        nums += mid - l + 1;//新添加的一行代码
-    }
+                <h1 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h1><h2 id="前缀和介绍"><a href="#前缀和介绍" class="headerlink" title="前缀和介绍"></a>前缀和介绍</h2><p>其实前缀和与其说是一种算法，倒不如说是一个小技巧，在各类算法题中几乎不会单独出现，但却是很多算法题的关键步骤，而很多时候我们又会忘记使用这个小技巧从而导致超时。</p>
+<h2 id="前缀和思想"><a href="#前缀和思想" class="headerlink" title="前缀和思想"></a>前缀和思想</h2><p>对数组<code>a[ ]</code>建立一个新的数组<code>s[ ]</code>,<code>s[i]</code>表示 <code>a[1] + a[2] + .. + a[i]</code>的和</p>
+<p>数组<code>s[ ]</code>的作用就是快速求出区间<code>[l, r]</code>的区间和，一般适用在在数据很大时会频繁对数列进行求和的情况下,每次计算区间和的时间复杂度减少到o(1)。</p>
+<h2 id="前缀和模板"><a href="#前缀和模板" class="headerlink" title="前缀和模板"></a>前缀和模板</h2><p>假设是对数组<code>a[]</code>的区间<code>[l, r]</code>进行求和</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void init_presum(int a[], int s[]){//构造前缀和s[]数组
+    for(int i = 1; i &lt;= N; i ++ ) s[i] = s[i - 1] + a[i];
+    //注：s[]数组初始情况下s[0]默认为0，这样可以更好的处理边界问题
+}
+int find_presum(int a[], int l, int r){//使用s[]数组进行查询区间和
+   return s[r] - s[l - 1]; 
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>其实还有二维的前缀和，思路和一维差不多，也很容易写出来这里就不多进行阐述了。</p>
+<h1 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h1><h2 id="差分思想"><a href="#差分思想" class="headerlink" title="差分思想"></a>差分思想</h2><p>之所以把差分和前缀和放在一起写是因为差分其实就是前缀和的逆操作。</p>
+<p>我们仍基于数组<code>a[ ]</code>构造一个新数组<code>b[ ]</code>,而<code>a[i]</code>表示数组<code>b[1] + b[2] + .. +b[i]</code>的和。</p>
+<p>这样单纯的看起来好像觉得数组<code>b[ ]</code>没啥用，可实际上在规模庞大的数据基础上如果要频繁的修改某些区间上的值时，这个技巧就很适用，可以将原本o(n)的时间复杂度降到o(1)。</p>
+<p>具体的操作就当修改区间<code>[l, r]</code>时，不用从原数组<code>a[ ]</code>中一个个改，只需要修改数组<code>b[l]、 b[r + 1]</code>的值就可以了，通过<code>b[ ]</code>能很轻松的更新<code>a[ ]</code></p>
+<h2 id="差分模板"><a href="#差分模板" class="headerlink" title="差分模板"></a>差分模板</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void insert(int l, int r, int c){
+    b[l] += c;
+    b[r + q] -=c;
+}
+for (int i = 1; i &lt;= n; i ++ ) b[i] = insert(i, i, a[i]);//数组b[]的构建
+//将a[]视为全0的数组，因此b[]一开始也是全0。b可以将a的初始化视为对区间长度为1的'点'进行修改实现自己的构建<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-
-<h2 id="关于归并排序你可能想要知道的"><a href="#关于归并排序你可能想要知道的" class="headerlink" title="关于归并排序你可能想要知道的"></a>关于归并排序你可能想要知道的</h2><p>1、该排序算法属于分治法。</p>
-<p>2、该排序算法的时间复杂度稳定的是o(nlogn)不会变动。<em>注: 实际上此处的log是以2为底的</em></p>
-<p>3、该算法其实是以用空间换时间。</p>
+<p>同理，二维差分也是存在的，思路还是差不多，这里就不重复写了。</p>
 
                 
             </div>
@@ -491,7 +459,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://mockingbirdm.github.io/2022/05/12/suan-fa-pai-xu-gui-bing/">http://mockingbirdm.github.io/2022/05/12/suan-fa-pai-xu-gui-bing/</a>
+                    <a href="http://mockingbirdm.github.io/2022/05/14/qian-zhui-he-yu-chai-fen/">http://mockingbirdm.github.io/2022/05/14/qian-zhui-he-yu-chai-fen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -531,14 +499,6 @@
                             
                                 <a href="/tags/%E7%AE%97%E6%B3%95/">
                                     <span class="chip bg-color">算法</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">排序</span>
                                 </a>
                             
                         </div>
@@ -712,6 +672,59 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="2_一本你可能会喜欢的小说">
+                        
+                        <span class="card-title">2_一本你可能会喜欢的小说</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            非中二病患者勿看
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B0%8F%E8%AF%B4/" class="post-category">
+                                    小说
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B0%8F%E8%AF%B4/">
+                        <span class="chip bg-color">小说</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%BE%99%E6%97%8F/">
+                        <span class="chip bg-color">龙族</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2022/05/13/suan-fa-er-fen/">
                     <div class="card-image">
                         
@@ -728,57 +741,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/05/11/suan-fa-pai-xu-kuai-pai/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/mockingbirdm/mockingbirdm.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="快速排序">
-                        
-                        <span class="card-title">快速排序</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            快排思想和模板
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
                             </span>
                         <span class="publish-author">
                             
@@ -797,14 +761,6 @@
                     
                     <a href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">排序</span>
                     </a>
                     
                 </div>
