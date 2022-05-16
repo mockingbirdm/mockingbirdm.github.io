@@ -3,11 +3,11 @@
   <title>Mockingbird&#39;s Blog</title>
   
   <subtitle>Mockingbird&#39;s Blog</subtitle>
-  <link href="http://mockingbirdm.github.io/atom.xml" rel="self"/>
+  <link href="http://mockingbird9.gitee.io/atom.xml" rel="self"/>
   
-  <link href="http://mockingbirdm.github.io/"/>
+  <link href="http://mockingbird9.gitee.io/"/>
   <updated>2022-05-14T13:29:12.187Z</updated>
-  <id>http://mockingbirdm.github.io/</id>
+  <id>http://mockingbird9.gitee.io/</id>
   
   <author>
     <name>Mockingbird</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>2_一本你可能会喜欢的小说</title>
-    <link href="http://mockingbirdm.github.io/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/"/>
-    <id>http://mockingbirdm.github.io/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/</id>
+    <link href="http://mockingbird9.gitee.io/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/"/>
+    <id>http://mockingbird9.gitee.io/2022/05/14/mei-qian-shang-da-xue-de-wo-zhi-neng-qu-tu-long-liao/</id>
     <published>2022-05-14T13:49:12.000Z</published>
     <updated>2022-05-14T13:29:12.187Z</updated>
     
@@ -36,19 +36,19 @@
     
     
     
-    <category term="小说" scheme="http://mockingbirdm.github.io/categories/%E5%B0%8F%E8%AF%B4/"/>
+    <category term="小说" scheme="http://mockingbird9.gitee.io/categories/%E5%B0%8F%E8%AF%B4/"/>
     
     
-    <category term="小说" scheme="http://mockingbirdm.github.io/tags/%E5%B0%8F%E8%AF%B4/"/>
+    <category term="小说" scheme="http://mockingbird9.gitee.io/tags/%E5%B0%8F%E8%AF%B4/"/>
     
-    <category term="龙族" scheme="http://mockingbirdm.github.io/tags/%E9%BE%99%E6%97%8F/"/>
+    <category term="龙族" scheme="http://mockingbird9.gitee.io/tags/%E9%BE%99%E6%97%8F/"/>
     
   </entry>
   
   <entry>
     <title>前缀和与差分</title>
-    <link href="http://mockingbirdm.github.io/2022/05/14/qian-zhui-he-yu-chai-fen/"/>
-    <id>http://mockingbirdm.github.io/2022/05/14/qian-zhui-he-yu-chai-fen/</id>
+    <link href="http://mockingbird9.gitee.io/2022/05/14/qian-zhui-he-yu-chai-fen/"/>
+    <id>http://mockingbird9.gitee.io/2022/05/14/qian-zhui-he-yu-chai-fen/</id>
     <published>2022-05-14T10:45:33.000Z</published>
     <updated>2022-05-14T11:45:48.538Z</updated>
     
@@ -63,17 +63,17 @@
     
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>二分算法</title>
-    <link href="http://mockingbirdm.github.io/2022/05/13/suan-fa-er-fen/"/>
-    <id>http://mockingbirdm.github.io/2022/05/13/suan-fa-er-fen/</id>
+    <link href="http://mockingbird9.gitee.io/2022/05/13/suan-fa-er-fen/"/>
+    <id>http://mockingbird9.gitee.io/2022/05/13/suan-fa-er-fen/</id>
     <published>2022-05-13T03:49:12.000Z</published>
     <updated>2022-05-14T11:46:48.765Z</updated>
     
@@ -88,17 +88,17 @@
     
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>归并排序</title>
-    <link href="http://mockingbirdm.github.io/2022/05/12/suan-fa-pai-xu-gui-bing/"/>
-    <id>http://mockingbirdm.github.io/2022/05/12/suan-fa-pai-xu-gui-bing/</id>
+    <link href="http://mockingbird9.gitee.io/2022/05/12/suan-fa-pai-xu-gui-bing/"/>
+    <id>http://mockingbird9.gitee.io/2022/05/12/suan-fa-pai-xu-gui-bing/</id>
     <published>2022-05-12T08:12:11.000Z</published>
     <updated>2022-05-12T14:23:21.466Z</updated>
     
@@ -113,21 +113,21 @@
     
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="数据结构" scheme="http://mockingbirdm.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="http://mockingbird9.gitee.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    <category term="排序" scheme="http://mockingbirdm.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    <category term="排序" scheme="http://mockingbird9.gitee.io/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>快速排序</title>
-    <link href="http://mockingbirdm.github.io/2022/05/11/suan-fa-pai-xu-kuai-pai/"/>
-    <id>http://mockingbirdm.github.io/2022/05/11/suan-fa-pai-xu-kuai-pai/</id>
+    <link href="http://mockingbird9.gitee.io/2022/05/11/suan-fa-pai-xu-kuai-pai/"/>
+    <id>http://mockingbird9.gitee.io/2022/05/11/suan-fa-pai-xu-kuai-pai/</id>
     <published>2022-05-11T14:40:12.000Z</published>
     <updated>2022-05-12T14:23:52.002Z</updated>
     
@@ -142,21 +142,21 @@
     
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="http://mockingbirdm.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="http://mockingbird9.gitee.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="数据结构" scheme="http://mockingbirdm.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="http://mockingbird9.gitee.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-    <category term="排序" scheme="http://mockingbirdm.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    <category term="排序" scheme="http://mockingbird9.gitee.io/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>音乐(live)推荐</title>
-    <link href="http://mockingbirdm.github.io/2022/03/28/yin-le/"/>
-    <id>http://mockingbirdm.github.io/2022/03/28/yin-le/</id>
+    <link href="http://mockingbird9.gitee.io/2022/03/28/yin-le/"/>
+    <id>http://mockingbird9.gitee.io/2022/03/28/yin-le/</id>
     <published>2022-03-28T11:14:00.000Z</published>
     <updated>2022-05-14T13:05:32.127Z</updated>
     
@@ -173,17 +173,17 @@
     
     
     
-    <category term="音乐" scheme="http://mockingbirdm.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
+    <category term="音乐" scheme="http://mockingbird9.gitee.io/categories/%E9%9F%B3%E4%B9%90/"/>
     
     
-    <category term="音乐" scheme="http://mockingbirdm.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
+    <category term="音乐" scheme="http://mockingbird9.gitee.io/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
   <entry>
     <title>或许是一些道理</title>
-    <link href="http://mockingbirdm.github.io/2022/03/26/luo-xiang/"/>
-    <id>http://mockingbirdm.github.io/2022/03/26/luo-xiang/</id>
+    <link href="http://mockingbird9.gitee.io/2022/03/26/luo-xiang/"/>
+    <id>http://mockingbird9.gitee.io/2022/03/26/luo-xiang/</id>
     <published>2022-03-26T06:25:00.000Z</published>
     <updated>2022-05-13T12:11:38.850Z</updated>
     
@@ -198,12 +198,12 @@
     
     
     
-    <category term="哲学" scheme="http://mockingbirdm.github.io/categories/%E5%93%B2%E5%AD%A6/"/>
+    <category term="哲学" scheme="http://mockingbird9.gitee.io/categories/%E5%93%B2%E5%AD%A6/"/>
     
     
-    <category term="罗翔" scheme="http://mockingbirdm.github.io/tags/%E7%BD%97%E7%BF%94/"/>
+    <category term="罗翔" scheme="http://mockingbird9.gitee.io/tags/%E7%BD%97%E7%BF%94/"/>
     
-    <category term="纪伯伦" scheme="http://mockingbirdm.github.io/tags/%E7%BA%AA%E4%BC%AF%E4%BC%A6/"/>
+    <category term="纪伯伦" scheme="http://mockingbird9.gitee.io/tags/%E7%BA%AA%E4%BC%AF%E4%BC%A6/"/>
     
   </entry>
   
