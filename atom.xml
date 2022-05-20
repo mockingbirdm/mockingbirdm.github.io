@@ -6,7 +6,7 @@
   <link href="http://mockingbirdm.github.io/atom.xml" rel="self"/>
   
   <link href="http://mockingbirdm.github.io/"/>
-  <updated>2022-05-20T12:14:16.956Z</updated>
+  <updated>2022-05-20T15:42:35.350Z</updated>
   <id>http://mockingbirdm.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://mockingbirdm.github.io/2022/05/20/shuo-chang/"/>
     <id>http://mockingbirdm.github.io/2022/05/20/shuo-chang/</id>
     <published>2022-05-20T03:14:00.000Z</published>
-    <updated>2022-05-20T12:14:16.956Z</updated>
+    <updated>2022-05-20T15:42:35.350Z</updated>
     
     
       
@@ -40,9 +40,9 @@
     <category term="音乐" scheme="http://mockingbirdm.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
     
     
-    <category term="说唱" scheme="http://mockingbirdm.github.io/tags/%E8%AF%B4%E5%94%B1/"/>
-    
     <category term="音乐" scheme="http://mockingbirdm.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+    <category term="说唱" scheme="http://mockingbirdm.github.io/tags/%E8%AF%B4%E5%94%B1/"/>
     
   </entry>
   
