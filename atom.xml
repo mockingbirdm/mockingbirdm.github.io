@@ -6,7 +6,7 @@
   <link href="http://mockingbirdm.github.io/atom.xml" rel="self"/>
   
   <link href="http://mockingbirdm.github.io/"/>
-  <updated>2022-05-20T11:53:58.802Z</updated>
+  <updated>2022-05-20T12:14:16.956Z</updated>
   <id>http://mockingbirdm.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://mockingbirdm.github.io/2022/05/20/shuo-chang/"/>
     <id>http://mockingbirdm.github.io/2022/05/20/shuo-chang/</id>
     <published>2022-05-20T03:14:00.000Z</published>
-    <updated>2022-05-20T11:53:58.802Z</updated>
+    <updated>2022-05-20T12:14:16.956Z</updated>
     
     
       
@@ -31,8 +31,7 @@
     <summary type="html">&lt;p&gt;由于种种原因找视频也太难了吧…&lt;/p&gt;
 &lt;p&gt;持续更新~&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注：如果视频的链接打不开就把视频的地址复制下来，去浏览器中重新打开（因为浏览器防火墙的原因，有的纯视频不能直接跳转）&lt;/strong&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a</summary>
+&lt;img</summary>
         
       
     
@@ -41,9 +40,9 @@
     <category term="音乐" scheme="http://mockingbirdm.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
     
     
-    <category term="音乐" scheme="http://mockingbirdm.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
-    
     <category term="说唱" scheme="http://mockingbirdm.github.io/tags/%E8%AF%B4%E5%94%B1/"/>
+    
+    <category term="音乐" scheme="http://mockingbirdm.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
