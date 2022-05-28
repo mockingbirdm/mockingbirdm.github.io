@@ -408,9 +408,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -425,18 +422,7 @@
 <p><em>这种做法是典型的以空间换时间，如果不太记得优雅的方法的界限划分时倒也不失为一种方法</em></p>
 <p><strong>3.递归处理左右两端</strong></p>
 <h2 id="快排模板"><a href="#快排模板" class="headerlink" title="快排模板"></a>快排模板</h2><p>优雅的</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void quick_sort(int q[], int l, int r){
-    if(l &gt;= r) return;//终止条件
-    int x = q[l + r &gt;&gt; 1];//第一步，确定分界点
-    int i = l - 1, j = r + 1;//注意这里的取值，因为下面使用的是do-while所以需要往两边扩一下
-    while(i &lt; j){//第二步，调整左右区间
-        do i ++ ; while(q[i] &gt; x);
-   		do j -- ; while(q[j] &lt; x); //注意此处不能有等号，不然可能会死循环
-        if(i &lt; j) swap(q[i], q[j]);
-    }
-    quick_sort(q, l, j), qucik_sort(q, j + 1, r);//第三步，递归处理左右两端；注意：这里的分界区间，天坑！！(都是泪)，和以首个元素为基准点的划分不一样，且以中间元素为基准点的划分每一次不会确定一个点的最终位置
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> q[], <span class="type">int</span> l, <span class="type">int</span> r)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;<span class="comment">//终止条件</span></span><br><span class="line">    <span class="type">int</span> x = q[l + r &gt;&gt; <span class="number">1</span>];<span class="comment">//第一步，确定分界点</span></span><br><span class="line">    <span class="type">int</span> i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;<span class="comment">//注意这里的取值，因为下面使用的是do-while所以需要往两边扩一下</span></span><br><span class="line">    <span class="keyword">while</span>(i &lt; j){<span class="comment">//第二步，调整左右区间</span></span><br><span class="line">        <span class="keyword">do</span> i ++ ; <span class="keyword">while</span>(q[i] &gt; x);</span><br><span class="line">   		<span class="keyword">do</span> j -- ; <span class="keyword">while</span>(q[j] &lt; x); <span class="comment">//注意此处不能有等号，不然可能会死循环</span></span><br><span class="line">        <span class="keyword">if</span>(i &lt; j) <span class="built_in">swap</span>(q[i], q[j]);</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, l, j), <span class="built_in">qucik_sort</span>(q, j + <span class="number">1</span>, r);<span class="comment">//第三步，递归处理左右两端；注意：这里的分界区间，天坑！！(都是泪)，和以首个元素为基准点的划分不一样，且以中间元素为基准点的划分每一次不会确定一个点的最终位置</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="第k小的数—模板题"><a href="#第k小的数—模板题" class="headerlink" title="第k小的数—模板题"></a>第k小的数—模板题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1923">P1923 【深基9.例4】求第 k 小的数 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <p>提示：用 k 和要递归的区间左比较，确定在哪个区间就行</p>

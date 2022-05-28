@@ -404,9 +404,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -423,80 +420,30 @@
 <p>​    4、链表更适合增加和删除操作，而顺序表更适合查询操作</p>
 <h2 id="单链表的模板"><a href="#单链表的模板" class="headerlink" title="单链表的模板"></a>单链表的模板</h2><h3 id="用数组模拟单链表"><a href="#用数组模拟单链表" class="headerlink" title="用数组模拟单链表"></a>用数组模拟单链表</h3><p>为什么要用数组来模拟链表呢？在很多算法题和笔试中实际不需要考虑内存是否浪费的问题，而频繁的使用构造一个新结点的<code>new</code>操作却又非常消耗时间很容易就会超时，所以我们此时选择这种用空间来换取时间的做法。</p>
 <p><strong>1、初始化</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;int&gt; val, ne;//val数组充当结点的值，ne数组充当结点的next 指针
-int head = -1, now = 0;//head 充当指向头结点的指针初始值为-1（相当于链表为空）
-						//now 为当前可利用的结点的下标<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; val, ne;<span class="comment">//val数组充当结点的值，ne数组充当结点的next 指针</span></span><br><span class="line"><span class="type">int</span> head = <span class="number">-1</span>, now = <span class="number">0</span>;<span class="comment">//head 充当指向头结点的指针初始值为-1（相当于链表为空）</span></span><br><span class="line">						<span class="comment">//now 为当前可利用的结点的下标</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>2、在头结点处插入值为<code>x</code>的结点</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void add_to_head(int x){
-    val.push_back(x);
-    ne.push_back(1);//相当于开辟一个新空间
-    ne[now] = head;//新结点的指针指向头结点指向的结点
-    head = now ++ ;//头结点指向新结点
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_to_head</span><span class="params">(<span class="type">int</span> x)</span></span>{</span><br><span class="line">    val.<span class="built_in">push_back</span>(x);</span><br><span class="line">    ne.<span class="built_in">push_back</span>(<span class="number">1</span>);<span class="comment">//相当于开辟一个新空间</span></span><br><span class="line">    ne[now] = head;<span class="comment">//新结点的指针指向头结点指向的结点</span></span><br><span class="line">    head = now ++ ;<span class="comment">//头结点指向新结点</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>3、在第<code>k</code>个插入的结点后面插入<code>x</code></strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void add(int k, int x){
-    val.push_back(x);
-    ne.push_back(1);//为x开辟一个空间
-    ne[now] = ne[k - 1];
-    ne[k - 1] = now ++;
-}
-//注意这里时第k个插入的数，而不是链表的第k个数
-void add(int k, int x){//如果想在链表的第k个数后面插入
-    val.push_back(x);
-    ne.push_back(x);
-    int p = head, k -- ;
-    while(k -- )	p = ne[p];
-    ne[now] = ne[p];
-    ne[p] = now ++;
-}
-//这种插入的时间复杂度为o(n), 在很多算法题中实际不需要这么实现，而是用第一种方法来插入
-//因为一套完整的插入删除操作算作一个链表建立的初始化用第一个操作完全能实现，时间也能节省很多<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> x)</span></span>{</span><br><span class="line">    val.<span class="built_in">push_back</span>(x);</span><br><span class="line">    ne.<span class="built_in">push_back</span>(<span class="number">1</span>);<span class="comment">//为x开辟一个空间</span></span><br><span class="line">    ne[now] = ne[k - <span class="number">1</span>];</span><br><span class="line">    ne[k - <span class="number">1</span>] = now ++;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//注意这里时第k个插入的数，而不是链表的第k个数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> x)</span></span>{<span class="comment">//如果想在链表的第k个数后面插入</span></span><br><span class="line">    val.<span class="built_in">push_back</span>(x);</span><br><span class="line">    ne.<span class="built_in">push_back</span>(x);</span><br><span class="line">    <span class="type">int</span> p = head, k -- ;</span><br><span class="line">    <span class="keyword">while</span>(k -- )	p = ne[p];</span><br><span class="line">    ne[now] = ne[p];</span><br><span class="line">    ne[p] = now ++;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//这种插入的时间复杂度为o(n), 在很多算法题中实际不需要这么实现，而是用第一种方法来插入</span></span><br><span class="line"><span class="comment">//因为一套完整的插入删除操作算作一个链表建立的初始化用第一个操作完全能实现，时间也能节省很多</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>4、删除第<code>k</code>个插入的结点后面插入的结点</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void remove(int k){
-    if (k == 0) head = ne[head];
-	else ne[k - 1] = ne[ne[k - 1]];
-}
-//注意这里时第k个插入的数，而不是链表的第k个数
-//如果想删除链表的第k个数实现方法和前面相似，这里就不写了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> k)</span></span>{</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">0</span>) head = ne[head];</span><br><span class="line">	<span class="keyword">else</span> ne[k - <span class="number">1</span>] = ne[ne[k - <span class="number">1</span>]];</span><br><span class="line">}</span><br><span class="line"><span class="comment">//注意这里时第k个插入的数，而不是链表的第k个数</span></span><br><span class="line"><span class="comment">//如果想删除链表的第k个数实现方法和前面相似，这里就不写了</span></span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="真正的单链表"><a href="#真正的单链表" class="headerlink" title="真正的单链表"></a>真正的单链表</h3><p>在实际的工程问题中，当然就不只需要考虑时间的问题了，同时也应该非常在乎内存的消耗问题，毕竟…那可是钱啊……</p>
 <p><strong>1、初始化</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef struct node{//结点的结构体
-    int val;
-    struct node *next;
-}Node;
-Node *head = new Node;//头指针<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">node</span>{<span class="comment">//结点的结构体</span></span><br><span class="line">    <span class="type">int</span> val;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">node</span> *next;</span><br><span class="line">}Node;</span><br><span class="line">Node *head = <span class="keyword">new</span> Node;<span class="comment">//头指针</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>2、在表头插入</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void add_to_head(int x){
-    Node *p = new Node;//为新结点开辟空间
-    p-&gt;val = x;
-    p-&gt;next = head-&gt;next;
-    head-&gt;next = p;
-}//其实实现逻辑和前面的数组模拟一样<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_to_head</span><span class="params">(<span class="type">int</span> x)</span></span>{</span><br><span class="line">    Node *p = <span class="keyword">new</span> Node;<span class="comment">//为新结点开辟空间</span></span><br><span class="line">    p-&gt;val = x;</span><br><span class="line">    p-&gt;next = head-&gt;next;</span><br><span class="line">    head-&gt;next = p;</span><br><span class="line">}<span class="comment">//其实实现逻辑和前面的数组模拟一样</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>3、在链表的第K个元素后插入</strong></p>
 <p><em>在单链表中这种在某个元素后插入的情况非常少，太费时了，一般都采用头插法或者尾插法</em></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void add(int k, int x){
-    Node *p = new Node;
-    p-&gt;val = x;
-    Node *now = head;
-    while(k -- ) now = now-&gt;next;
-    p-&gt;next = now-&gt;next;
-    now-&gt;next = p;
-}//引入头结点后将k置为0即是头插法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> x)</span></span>{</span><br><span class="line">    Node *p = <span class="keyword">new</span> Node;</span><br><span class="line">    p-&gt;val = x;</span><br><span class="line">    Node *now = head;</span><br><span class="line">    <span class="keyword">while</span>(k -- ) now = now-&gt;next;</span><br><span class="line">    p-&gt;next = now-&gt;next;</span><br><span class="line">    now-&gt;next = p;</span><br><span class="line">}<span class="comment">//引入头结点后将k置为0即是头插法</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>4、删除第K位后面的结点</strong></p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void remove(int k){ 
-	Node *p = head;
-	while(k -- ) p = p-&gt;next;
-	Node *q = p-&gt;next;
-	p-&gt;next = p-&gt;next-&gt;next;
-	delete q; 
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> k)</span></span>{ </span><br><span class="line">	Node *p = head;</span><br><span class="line">	<span class="keyword">while</span>(k -- ) p = p-&gt;next;</span><br><span class="line">	Node *q = p-&gt;next;</span><br><span class="line">	p-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line">	<span class="keyword">delete</span> q; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
                 

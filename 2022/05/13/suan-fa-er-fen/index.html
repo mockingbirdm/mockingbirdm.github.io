@@ -400,9 +400,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -419,29 +416,17 @@
 <p>整型二分的模板右两种</p>
 <p><strong>1、想找出边界的第一个点(例如 图中的B点)</strong></p>
 <p>假设想找出最后一个小于等于 <code>X</code> 的点</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(l &lt; r){
-    int mid = l + r &gt;&gt; 1;//1、确定分界点
-	if (mid &gt;= x) r = mid;//2、确定判断函数；3、划分区间
-	else l = mid + 1;
-} <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; r){</span><br><span class="line">    <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;<span class="comment">//1、确定分界点</span></span><br><span class="line">	<span class="keyword">if</span> (mid &gt;= x) r = mid;<span class="comment">//2、确定判断函数；3、划分区间</span></span><br><span class="line">	<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>注：这里只是举了一个具体的例子，实际上如果将区间<code>[l,r]</code>划分区间为<code>[l，mid]</code>或<code>[mid + 1, r] </code>都可使用</em></p>
 <p><strong>2、想找出边界的最后一个点（例如 如中的A点）</strong></p>
 <p>假设想找出第一个大于等于 <code>X</code> 的点</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(l &lt; r){
-    int mid = l + r + 1 &gt;&gt; 1; //注意这里加了1
-    if(mid &lt;= x) l = mid;
-    else r = mid - 1;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; r){</span><br><span class="line">    <span class="type">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>; <span class="comment">//注意这里加了1</span></span><br><span class="line">    <span class="keyword">if</span>(mid &lt;= x) l = mid;</span><br><span class="line">    <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>因为<code>c++</code>中除法是向下取整，如果此时<code>r = l + 1</code>那么此时更新区间左端点的步骤<code>l = mid</code>实际没有作用，会陷入死循环中</p>
 <p><em>注：这里只是举了一个具体的例子，实际上如果将区间<code>[l,r]</code>划分区间为<code>[l，mid - 1]</code>或<code>[mid , r] </code>都可使用</em></p>
 <h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><p>浮点型就要简单多了，没那么多的区间限制</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(l &lt; r){
-    int mid = l + r &gt;&gt; 1;
-    if (check(mid)) r= mid;
-    else l = mid;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; r){</span><br><span class="line">    <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">check</span>(mid)) r= mid;</span><br><span class="line">    <span class="keyword">else</span> l = mid;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>巨简单！</p>
 

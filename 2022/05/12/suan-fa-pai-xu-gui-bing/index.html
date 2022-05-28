@@ -408,9 +408,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
 
         
 
@@ -422,19 +419,7 @@
 <p>注意：快速排序中是先调整好区间再进行递归调用</p>
 <p><strong>3、合二为一(难点)</strong></p>
 <p>需要一个额外的数组来暂存合并好的数组</p>
-<h2 id="归并排序模板"><a href="#归并排序模板" class="headerlink" title="归并排序模板"></a>归并排序模板</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge_sort(int q[], int l, int r){
-    if(l &gt;= r) return ; //递归出口
-    int mid = l + r &gt;&gt; 1;//第一步：确定分界点
-    merge_sort(q, l, mid),merge_sort(q, mid + 1, r);//第二步：递归调用
-    int k = 0, i = l, j = mid + 1;
-    while(i &lt;= mid &amp; j &lt;= r){//第三步：合二为一
-        if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];//注：这里的 &gt;= 可保证排序的稳定
-        else tmp[k ++ ] = q[j ++ ];
-    }
-    while(i &lt;= mid ) tmp[k ++ ] = q[i ++ ];
-    while(j &lt;= r) tmp[k ++ ] = q[j ++ ];
-    for(i = l, j = 0; i &lt;= r; i++, j++ ) q[i] = tmp[j];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="归并排序模板"><a href="#归并排序模板" class="headerlink" title="归并排序模板"></a>归并排序模板</h2><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge_sort</span><span class="params">(<span class="type">int</span> q[], <span class="type">int</span> l, <span class="type">int</span> r)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span> ; <span class="comment">//递归出口</span></span><br><span class="line">    <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;<span class="comment">//第一步：确定分界点</span></span><br><span class="line">    <span class="built_in">merge_sort</span>(q, l, mid),<span class="built_in">merge_sort</span>(q, mid + <span class="number">1</span>, r);<span class="comment">//第二步：递归调用</span></span><br><span class="line">    <span class="type">int</span> k = <span class="number">0</span>, i = l, j = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt;= mid &amp; j &lt;= r){<span class="comment">//第三步：合二为一</span></span><br><span class="line">        <span class="keyword">if</span>(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];<span class="comment">//注：这里的 &gt;= 可保证排序的稳定</span></span><br><span class="line">        <span class="keyword">else</span> tmp[k ++ ] = q[j ++ ];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">while</span>(i &lt;= mid ) tmp[k ++ ] = q[i ++ ];</span><br><span class="line">    <span class="keyword">while</span>(j &lt;= r) tmp[k ++ ] = q[j ++ ];</span><br><span class="line">    <span class="keyword">for</span>(i = l, j = <span class="number">0</span>; i &lt;= r; i++, j++ ) q[i] = tmp[j];</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <h2 id="逆序对的数量—题目讲解"><a href="#逆序对的数量—题目讲解" class="headerlink" title="逆序对的数量—题目讲解"></a>逆序对的数量—题目讲解</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <p>可能有的朋友第一次读完题后觉得很莫名奇妙，这和归并排序有关？什么玩意？</p>
@@ -450,13 +435,7 @@
 <p><del>这多简单？两个for循环不就搞定了？</del> 很显然这样的时间复杂度是o(n^2)</p>
 <p>而归并排序不就恰好能实现这一点吗？而且相应的时间复杂度是o(nlogn)</p>
 <p>所以其实这道题就只需要在归并排序原基础上添加一行代码</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">while(i &lt;= mid &amp;&amp; j &lt;= r){
-    if(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];
-    else {
-        tmp[k ++ ] = q[j ++ ];
-        nums += mid - l + 1;//新添加的一行代码
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= r){</span><br><span class="line">    <span class="keyword">if</span>(q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];</span><br><span class="line">    <span class="keyword">else</span> {</span><br><span class="line">        tmp[k ++ ] = q[j ++ ];</span><br><span class="line">        nums += mid - l + <span class="number">1</span>;<span class="comment">//新添加的一行代码</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
 
