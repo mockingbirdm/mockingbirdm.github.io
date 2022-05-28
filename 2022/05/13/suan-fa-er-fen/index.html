@@ -32,7 +32,7 @@
 <meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Mockingbird's Blog" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -388,7 +388,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    453
+                    322
                 </div>
                 
 
@@ -416,18 +416,30 @@
 <p>整型二分的模板右两种</p>
 <p><strong>1、想找出边界的第一个点(例如 图中的B点)</strong></p>
 <p>假设想找出最后一个小于等于 <code>X</code> 的点</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; r){</span><br><span class="line">    <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;<span class="comment">//1、确定分界点</span></span><br><span class="line">	<span class="keyword">if</span> (mid &gt;= x) r = mid;<span class="comment">//2、确定判断函数；3、划分区间</span></span><br><span class="line">	<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
-
+<pre class=" language-c++"><code class="language-c++">while(l < r){
+    int mid = l + r >> 1;//1、确定分界点
+    if (mid >= x) r = mid;//2、确定判断函数；3、划分区间
+    else l = mid + 1;
+} 
+</code></pre>
 <p><em>注：这里只是举了一个具体的例子，实际上如果将区间<code>[l,r]</code>划分区间为<code>[l，mid]</code>或<code>[mid + 1, r] </code>都可使用</em></p>
 <p><strong>2、想找出边界的最后一个点（例如 如中的A点）</strong></p>
 <p>假设想找出第一个大于等于 <code>X</code> 的点</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; r){</span><br><span class="line">    <span class="type">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>; <span class="comment">//注意这里加了1</span></span><br><span class="line">    <span class="keyword">if</span>(mid &lt;= x) l = mid;</span><br><span class="line">    <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
+<pre class=" language-c++"><code class="language-c++">while(l < r){
+    int mid = l + r + 1 >> 1; //注意这里加了1
+    if(mid <= x) l = mid;
+    else r = mid - 1;
+}
+</code></pre>
 <p>因为<code>c++</code>中除法是向下取整，如果此时<code>r = l + 1</code>那么此时更新区间左端点的步骤<code>l = mid</code>实际没有作用，会陷入死循环中</p>
 <p><em>注：这里只是举了一个具体的例子，实际上如果将区间<code>[l,r]</code>划分区间为<code>[l，mid - 1]</code>或<code>[mid , r] </code>都可使用</em></p>
 <h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><p>浮点型就要简单多了，没那么多的区间限制</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &lt; r){</span><br><span class="line">    <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">check</span>(mid)) r= mid;</span><br><span class="line">    <span class="keyword">else</span> l = mid;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
+<pre class=" language-c++"><code class="language-c++">while(l < r){
+    int mid = l + r >> 1;
+    if (check(mid)) r= mid;
+    else l = mid;
+}
+</code></pre>
 <p>巨简单！</p>
 
                 
@@ -1000,7 +1012,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">5.4k</span>&nbsp;字
             
             
             

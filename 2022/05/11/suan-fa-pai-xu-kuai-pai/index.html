@@ -32,7 +32,7 @@
 <meta name="generator" content="Hexo 6.1.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="Mockingbird's Blog" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -396,7 +396,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    450
+                    443
                 </div>
                 
 
@@ -422,8 +422,18 @@
 <p><em>这种做法是典型的以空间换时间，如果不太记得优雅的方法的界限划分时倒也不失为一种方法</em></p>
 <p><strong>3.递归处理左右两端</strong></p>
 <h2 id="快排模板"><a href="#快排模板" class="headerlink" title="快排模板"></a>快排模板</h2><p>优雅的</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> q[], <span class="type">int</span> l, <span class="type">int</span> r)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;<span class="comment">//终止条件</span></span><br><span class="line">    <span class="type">int</span> x = q[l + r &gt;&gt; <span class="number">1</span>];<span class="comment">//第一步，确定分界点</span></span><br><span class="line">    <span class="type">int</span> i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;<span class="comment">//注意这里的取值，因为下面使用的是do-while所以需要往两边扩一下</span></span><br><span class="line">    <span class="keyword">while</span>(i &lt; j){<span class="comment">//第二步，调整左右区间</span></span><br><span class="line">        <span class="keyword">do</span> i ++ ; <span class="keyword">while</span>(q[i] &gt; x);</span><br><span class="line">   		<span class="keyword">do</span> j -- ; <span class="keyword">while</span>(q[j] &lt; x); <span class="comment">//注意此处不能有等号，不然可能会死循环</span></span><br><span class="line">        <span class="keyword">if</span>(i &lt; j) <span class="built_in">swap</span>(q[i], q[j]);</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, l, j), <span class="built_in">qucik_sort</span>(q, j + <span class="number">1</span>, r);<span class="comment">//第三步，递归处理左右两端；注意：这里的分界区间，天坑！！(都是泪)，和以首个元素为基准点的划分不一样，且以中间元素为基准点的划分每一次不会确定一个点的最终位置</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
+<pre class=" language-c++"><code class="language-c++">void quick_sort(int q[], int l, int r){
+    if(l >= r) return;//终止条件
+    int x = q[l + r >> 1];//第一步，确定分界点
+    int i = l - 1, j = r + 1;//注意这里的取值，因为下面使用的是do-while所以需要往两边扩一下
+    while(i < j){//第二步，调整左右区间
+        do i ++ ; while(q[i] > x);
+           do j -- ; while(q[j] < x); //注意此处不能有等号，不然可能会死循环
+        if(i < j) swap(q[i], q[j]);
+    }
+    quick_sort(q, l, j), qucik_sort(q, j + 1, r);//第三步，递归处理左右两端；注意：这里的分界区间，天坑！！(都是泪)，和以首个元素为基准点的划分不一样，且以中间元素为基准点的划分每一次不会确定一个点的最终位置
+}
+</code></pre>
 <h2 id="第k小的数—模板题"><a href="#第k小的数—模板题" class="headerlink" title="第k小的数—模板题"></a>第k小的数—模板题</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1923">P1923 【深基9.例4】求第 k 小的数 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
 <p>提示：用 k 和要递归的区间左比较，确定在哪个区间就行</p>
 
@@ -1005,7 +1015,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">5.4k</span>&nbsp;字
             
             
             
