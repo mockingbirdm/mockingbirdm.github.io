@@ -6,7 +6,7 @@
   <link href="http://mockingbirdm.github.io/atom.xml" rel="self"/>
   
   <link href="http://mockingbirdm.github.io/"/>
-  <updated>2022-05-28T09:22:46.689Z</updated>
+  <updated>2022-08-20T16:43:38.555Z</updated>
   <id>http://mockingbirdm.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>巅峰对决歌曲推荐</title>
+    <link href="http://mockingbirdm.github.io/2022/08/21/zhong-guo-shuo-chang-dian-feng-dui-jue/"/>
+    <id>http://mockingbirdm.github.io/2022/08/21/zhong-guo-shuo-chang-dian-feng-dui-jue/</id>
+    <published>2022-08-20T16:24:11.000Z</published>
+    <updated>2022-08-20T16:43:38.555Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;中文说唱巅峰对决歌曲推荐&quot;&gt;&lt;a href=&quot;#中文说唱巅峰对决歌曲推荐&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="音乐" scheme="http://mockingbirdm.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
+    
+    
+    <category term="说唱" scheme="http://mockingbirdm.github.io/tags/%E8%AF%B4%E5%94%B1/"/>
+    
+    <category term="音乐" scheme="http://mockingbirdm.github.io/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
   
   <entry>
     <title>单链表</title>
